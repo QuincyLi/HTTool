@@ -4,6 +4,7 @@ var dataModel;
 var startObj = {
   start: []
 };
+var tempStart = {};
 
 function init() {
   dataModel = new ht.DataModel();
@@ -43,10 +44,13 @@ function apply() {
   config.frames = parseInt(document.getElementById('frames').value);
   config.interval = parseInt(document.getElementById('interval').value);
   config.delay = parseInt(document.getElementById('delay').value);
+  if (document.getElementById('next').value) {
+    config.next = document.getElementById('next').value;
+  }
   if (document.getElementsByName('repeat')[0].checked) {
     config.repeat = true;
-  } else {
-    config.repeat = document.getElementById('repeat').value
+  } else if (parseInt(document.getElementById('repeat').value) > 0) {
+    config.repeat = parseInt(document.getElementById('repeat').value);
   }
   config.easing = document.getElementById('easing').value;
   config.accessType = document.getElementById('accessType').value == 'null' ? null : document.getElementById('accessType').value;
@@ -56,26 +60,27 @@ function apply() {
   } else {
     var start = document.getElementById('start');
     var child = document.createElement('div');
+    var next = document.getElementById('next');
     child.innerHTML = '<input type="checkbox" name="start" onclick="checkAnimation(this.value)" value="' + name + '" checked/><span>' + name + '</span>';
+    next.add(new Option(name, name));
     start.appendChild(child);
     startObj[name] = config;
     startObj.start.push(name);
     node.setAnimation(startObj);
   }
+  tempStart = startObj;
   console.log(startObj);
 }
 
 function checkAnimation(value) {
   var animation = document.getElementsByName('start');
-  var start = document.getElementById('start');
+  var result = [];
   for (var i = 0; i < animation.length; i++) {
-    if (!animation[i].checked) {
-      delete startObj[animation[i].value];
-      var index = startObj.start.indexOf(animation[i].value);
-      startObj.start.splice(index, 1);
-      start.removeChild(start.childNodes[i + 3]);
+    if (animation[i].checked) {
+      result.push(animation[i].value);
     }
   }
+  startObj.start = result;
 }
 
 function showInput(value, id) {
