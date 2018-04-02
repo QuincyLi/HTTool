@@ -1,0 +1,40 @@
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+label{
+  display: block;
+}
+
+.pallet{
+  float: left;
+  height: 100%;
+  width: 200px;
+  border-right: solid;
+}
+
+.shape{
+  float: left;
+  height: 100%;
+  width: 200px;
+  border-left: solid;
+}
+
+.draw{
+  float: left;
+  height: 100%;
+  width: 78%;
+}
+
+.drawContent{
+  height: 100%;
+  width: 78%;
+}
+
+.title{
+  display: block;
+  text-align: center;
+  border-bottom: solid;
+}
