@@ -72,11 +72,11 @@ function showOrHideNode(node) {
   });
 }
 
-function horizontalMoveNode(node, abc) {
+function horizontalMoveNode(node) {
   node.setAnimation({
     moveToLeft: {
-      from: asas,
-      to: abc,
+      from: 150,
+      to: 300,
       easing: "Linear",
       next: "moveToRight",
       onUpdate: function(value) {
