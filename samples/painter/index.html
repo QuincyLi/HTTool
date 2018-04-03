@@ -14,95 +14,103 @@
       <span class="title">动画参数配置</span>
     </div>
     <div id="animation" style="padding:5px;">
-      <div>
-        <label>name:</label>
-        <input id="name" type="text" value="name">
+      <div id="configContent" style="border: solid">
+        <div>
+          <label>name:</label>
+          <input name="name" type="text" value="name">
+        </div>
+        <div>
+          <label>property:</label>
+          <input name="property" type="text" value="width">
+        </div>
+        <div>
+          <label>accessType:</label>
+          <select name="accessType">
+            <option value="null">无</option>
+            <option value="style">style</option>
+            <option value="attr">attr</option>
+          </select>
+        </div>
+        <div>
+          <label>from:</label>
+          <input name="from" type="text" value="0">
+        </div>
+        <div>
+          <label>to:</label>
+          <input name="to" type="text" value="100">
+        </div>
+        <div>
+          <label>frames:</label>
+          <input name="frames" type="text" value="60">
+        </div>
+        <div>
+          <label>interval:</label>
+          <input name="interval" type="text" value="0">
+        </div>
+        <div>
+          <label>delay:</label>
+          <input name="delay" type="text" value="0">
+        </div>
+        <div id="repeatDiv">
+          <label>repeat:</label>
+          <input id="isRepeat0" type="checkbox" onclick="showInput(this, repeat0)" checked>
+          <input id="repeat0" type="text" style="display:none">
+        </div>
+        <div>
+          <label>easing:</label>
+          <select name="easing">
+            <option value="Linear">Linear</option>
+            <option value="Quad.easeIn">Quad.easeIn</option>
+            <option value="Quad.easeOut">Quad.easeOut</option>
+            <option value="Quad.easeInOut">Quad.easeInOut</option>
+            <option value="Cubic.easeIn">Cubic.easeIn</option>
+            <option value="Cubic.easeOut">Cubic.easeOut</option>
+            <option value="Cubic.easeInOut">Cubic.easeInOut</option>
+            <option value="Quart.easeIn">Quart.easeIn</option>
+            <option value="Quart.easeOut">Quart.easeOut</option>
+            <option value="Quart.easeInOut">Quart.easeInOut</option>
+            <option value="Quint.easeIn">Quint.easeIn</option>
+            <option value="Quint.easeOut">Quint.easeOut</option>
+            <option value="Quint.easeInOut">Quint.easeInOut</option>
+            <option value="Sine.easeIn">Sine.easeIn</option>
+            <option value="Sine.easeOut">Sine.easeOut</option>
+            <option value="Sine.easeInOut">Sine.easeInOut</option>
+            <option value="Expo.easeIn">Expo.easeIn</option>
+            <option value="Expo.easeOut">Expo.easeOut</option>
+            <option value="Expo.easeInOut">Expo.easeInOut</option>
+            <option value="Circ.easeIn">Circ.easeIn</option>
+            <option value="Circ.easeOut">Circ.easeOut</option>
+            <option value="Circ.easeInOut">Circ.easeInOut</option>
+            <option value="Elastic.easeIn">Elastic.easeIn</option>
+            <option value="Elastic.easeOut">Elastic.easeOut</option>
+            <option value="Elastic.easeInOut">Elastic.easeInOut</option>
+            <option value="Back.easeIn">Back.easeIn</option>
+            <option value="Back.easeOut">Back.easeOut</option>
+            <option value="Back.easeInOut">Back.easeInOut</option>
+            <option value="Bounce.easeIn">Bounce.easeIn</option>
+            <option value="Bounce.easeOut">Bounce.easeOut</option>
+            <option value="Bounce.easeInOut">Bounce.easeInOut</option>
+          </select>
+        </div>
+        <div>
+          <label>next</label>
+          <select name="next">
+            <option value="">无</option>
+          </select>
+        </div>
+        <div style="margin-top:10px;">
+          <label>start:</label>
+          <input name="start" type="checkbox" onclick="checkAnimation()" checked/>
+        </div>
+        <div>
+          <button style="margin-top:10px" onclick="apply(0)">apply</button>
+          <button style="margin-top:10px" onclick="deleteAnimation(0)">delete</button>
+        </div>
       </div>
-      <div>
-        <label>property:</label>
-        <input id="property" type="text" value="width">
-      </div>
-      <div>
-        <label>accessType:</label>
-        <select id="accessType">
-          <option value="null">无</option>
-          <option value="style">style</option>
-          <option value="attr">attr</option>
-        </select>
-      </div>
-      <div>
-        <label>from:</label>
-        <input id="from" type="text" value="0">
-      </div>
-      <div>
-        <label>to:</label>
-        <input id="to" type="text" value="100">
-      </div>
-      <div>
-        <label>frames:</label>
-        <input id="frames" type="text" value="60">
-      </div>
-      <div>
-        <label>interval:</label>
-        <input id="interval" type="text" value="0">
-      </div>
-      <div>
-        <label>delay:</label>
-        <input id="delay" type="text" value="0">
-      </div>
-      <div>
-        <label>repeat:</label>
-        <input type="radio" name="repeat" value="1" onclick="showInput(this.value, repeat)" checked>
-        <input type="radio" name="repeat" value="0" onclick="showInput(this.value, repeat)">
-        <input id="repeat" type="text" style="display:none">
-      </div>
-      <div>
-        <label>easing:</label>
-        <select id="easing">
-          <option value="Linear">Linear</option>
-          <option value="Quad.easeIn">Quad.easeIn</option>
-          <option value="Quad.easeOut">Quad.easeOut</option>
-          <option value="Quad.easeInOut">Quad.easeInOut</option>
-          <option value="Cubic.easeIn">Cubic.easeIn</option>
-          <option value="Cubic.easeOut">Cubic.easeOut</option>
-          <option value="Cubic.easeInOut">Cubic.easeInOut</option>
-          <option value="Quart.easeIn">Quart.easeIn</option>
-          <option value="Quart.easeOut">Quart.easeOut</option>
-          <option value="Quart.easeInOut">Quart.easeInOut</option>
-          <option value="Quint.easeIn">Quint.easeIn</option>
-          <option value="Quint.easeOut">Quint.easeOut</option>
-          <option value="Quint.easeInOut">Quint.easeInOut</option>
-          <option value="Sine.easeIn">Sine.easeIn</option>
-          <option value="Sine.easeOut">Sine.easeOut</option>
-          <option value="Sine.easeInOut">Sine.easeInOut</option>
-          <option value="Expo.easeIn">Expo.easeIn</option>
-          <option value="Expo.easeOut">Expo.easeOut</option>
-          <option value="Expo.easeInOut">Expo.easeInOut</option>
-          <option value="Circ.easeIn">Circ.easeIn</option>
-          <option value="Circ.easeOut">Circ.easeOut</option>
-          <option value="Circ.easeInOut">Circ.easeInOut</option>
-          <option value="Elastic.easeIn">Elastic.easeIn</option>
-          <option value="Elastic.easeOut">Elastic.easeOut</option>
-          <option value="Elastic.easeInOut">Elastic.easeInOut</option>
-          <option value="Back.easeIn">Back.easeIn</option>
-          <option value="Back.easeOut">Back.easeOut</option>
-          <option value="Back.easeInOut">Back.easeInOut</option>
-          <option value="Bounce.easeIn">Bounce.easeIn</option>
-          <option value="Bounce.easeOut">Bounce.easeOut</option>
-          <option value="Bounce.easeInOut">Bounce.easeInOut</option>
-        </select>
-      </div>
-      <div>
-        <label>next</label>
-        <select id="next">
-          <option value="">无</option>
-        </select>
-      </div>
-      <div id="start" style="margin-top:10px;">
-        <label>start:</label>
-      </div>
-      <button style="margin-top:10px" onclick="apply()">apply</button>
     </div>
+    <button style="margin-top:10px" onclick="start()">start</button>
+    <button style="margin-top:10px" onclick="add()">add</button>
+    <button style="margin-top:10px" onclick="cancel()">cancel</button>
   </div>
   <div id="draw" class="draw"></div>
   <div class="shape">
@@ -110,43 +118,7 @@
       <span class="title">形状参数配置</span>
     </div>
     <div style="padding:5px;">
-      <div>
-        <label>property:</label>
-        <input id="property" type="text">
-      </div>
-      <div>
-        <label>accessType:</label>
-        <input id="accessType" type="text">
-      </div>
-      <div>
-        <label>from:</label>
-        <input id="from" type="text">
-      </div>
-      <div>
-        <label>to:</label>
-        <input id="to" type="text">
-      </div>
-      <div>
-        <label>frames:</label>
-        <input id="frames" type="text">
-      </div>
-      <div>
-        <label>interval:</label>
-        <input id="interval" type="text">
-      </div>
-      <div>
-        <label>delay:</label>
-        <input id="delay" type="text">
-      </div>
-      <div>
-        <label>repeat:</label>
-        <input type="text">
-      </div>
-      <div>
-        <label>easing:</label>
-        <input type="text">
-      </div>
-      <button>apply</button>
+
     </div>
   </div>
 </body>

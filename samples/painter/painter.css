@@ -11,7 +11,8 @@ label {
 .pallet {
     float: left;
     height: 100%;
-    width: 200px;
+    width: 220px;
+    overflow: auto;
     border-right: solid;
 }
 
