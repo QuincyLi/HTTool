@@ -1,11 +1,11 @@
 <html>
 
 <head>
-  <title>Painter</title>
+  <title>Moveable</title>
   <script src="../../lib/ht.js"></script>
   <script src="../../lib/ht-animation.js"></script>
-  <script src="./painter.js"></script>
-  <link rel="stylesheet" type="text/css" href="./painter.css" />
+  <script src="./moveable.js"></script>
+  <link rel="stylesheet" type="text/css" href="./moveable.css" />
 </head>
 
 <body onload="init()">
@@ -22,9 +22,10 @@
         <div>
           <label>property:</label>
           <select name="property" onchange="propertyChange(event, this.value)">
-            <option value="width">宽度</option>
-            <option value="height">高度</option>
-            <option value="opacity">透明度</option>
+            <option value="0">水平移动</option>
+            <option value="1">垂直移动</option>
+            <option value="2">旋转</option>
+            <option value="3">透明度</option>
           </select>
         </div>
         <div>
@@ -38,10 +39,22 @@
         <div>
           <label>from:</label>
           <input name="from" type="text" value="0">
+          <select name="fromAngle" style="display:none">
+            <option value="0">0</option>
+            <option value="1">90</option>
+            <option value="2">180</option>
+            <option value="3">360</option>
+          </select>
         </div>
         <div>
           <label>to:</label>
           <input name="to" type="text" value="100">
+          <select name="toAngle" style="display:none">
+            <option value="0">0</option>
+            <option value="1">90</option>
+            <option value="2">180</option>
+            <option value="3">360</option>
+          </select>
         </div>
         <div>
           <label>frames:</label>

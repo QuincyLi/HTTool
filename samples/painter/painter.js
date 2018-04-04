@@ -3,28 +3,28 @@ var index = 1;
 var dataModel;
 var startObj = {
   expandWidth: {
-      property: "width",
-      from: 30,
-      to: 100,
-      next: "collapseWidth"
+    property: "width",
+    from: 30,
+    to: 100,
+    next: "collapseWidth"
   },
   collapseWidth: {
-      property: "width",
-      from: 100,
-      to: 30,
-      next: "expandWidth"
+    property: "width",
+    from: 100,
+    to: 30,
+    next: "expandWidth"
   },
   expandHeight: {
-      property: "height",
-      from: 30,
-      to: 100,
-      next: "collapseHeight"
+    property: "height",
+    from: 30,
+    to: 100,
+    next: "collapseHeight"
   },
   collapseHeight: {
-      property: "height",
-      from: 100,
-      to: 30,
-      next: "expandHeight"
+    property: "height",
+    from: 100,
+    to: 30,
+    next: "expandHeight"
   },
   start: ["expandWidth", "expandHeight"]
 };
@@ -130,6 +130,33 @@ function showInput(target, id) {
   }
 }
 
-function deleteAnimation(value) {
+function propertyChange(event, value) {
+  var parent = event.target.parentNode.parentNode;
+  var accessType = parent.children[2];
+  if (value == 'opacity') {
+    accessType.lastElementChild.value = 'style';
+    accessType.lastElementChild.disabled = true;
+  } else {
+    accessType.lastElementChild.value = 'null';
+    accessType.lastElementChild.disabled = false;
+  }
 
+  // if (value == 2) {
+  //   from.children[1].style.display = 'none';
+  //   from.children[2].style.display = '';
+  //   to.children[1].style.display = 'none';
+  //   to.children[2].style.display = '';
+  //   accessType.lastElementChild.value = 'null';
+  //   accessType.lastElementChild.disabled = false;
+  // } else if (value == 3) {
+  //   accessType.lastElementChild.value = 'style';
+  //   accessType.lastElementChild.disabled = true;
+  // } else {
+  //   from.children[2].style.display = 'none';
+  //   from.children[1].style.display = '';
+  //   to.children[2].style.display = 'none';
+  //   to.children[1].style.display = '';
+  //   accessType.lastElementChild.value = 'null';
+  //   accessType.lastElementChild.disabled = false;
+  // }
 }
