@@ -2,6 +2,7 @@
 
 <head>
   <title>Moveable</title>
+  <meta charset="UTF-8">
   <script src="../../lib/ht.js"></script>
   <script src="../../lib/ht-animation.js"></script>
   <script src="./moveable.js"></script>
@@ -26,6 +27,10 @@
             <option value="1">垂直移动</option>
             <option value="2">旋转</option>
             <option value="3">透明度</option>
+            <option value="4">颜色闪烁</option>
+            <option value="5">颜色变化</option>
+            <option value="6">边框颜色变化</option>
+            <option value="7">边框粗细变化</option>
           </select>
         </div>
         <div>
@@ -117,7 +122,7 @@
         </div>
         <div style="margin-top:10px;">
           <label>start:</label>
-          <input name="start" type="checkbox" onclick="checkAnimation()" checked/>
+          <input name="start" type="checkbox" onclick="checkAnimation()" />
         </div>
         <div>
           <button style="margin-top:10px" onclick="apply(0)">apply</button>

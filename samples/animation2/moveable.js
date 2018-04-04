@@ -89,6 +89,10 @@ function apply(indexArg) {
     case '1': verticalMoveNode(config, indexArg); break;
     case '2': rotateNode(config, indexArg); break;
     case '3': hideNode(config, indexArg); break;
+    case '4': twinkleNode(config, indexArg); break;
+    case '5': colorfulNode(config, indexArg); break;
+    case '6': colorfulBorder(config, indexArg); break;
+    case '7': changeableBorder(config, indexArg); break;
     case '0':
     default: horizontalMoveNode(config, indexArg);
   }
@@ -141,6 +145,30 @@ function hideNode(config, indexArg) {
   config.to = parseInt(document.getElementsByName('to')[indexArg].value);
 }
 
+function twinkleNode(config, indexArg) {
+  config.onUpdate = colorTwinkle;
+  config.from = parseInt(document.getElementsByName('from')[indexArg].value);
+  config.to = parseInt(document.getElementsByName('to')[indexArg].value);
+}
+
+function colorfulNode(config, indexArg) {
+  config.onUpdate = colorChange;
+  config.from = parseInt(document.getElementsByName('from')[indexArg].value);
+  config.to = parseInt(document.getElementsByName('to')[indexArg].value);
+}
+
+function colorfulBorder(config, indexArg){
+  config.onUpdate = changeBorder;
+  config.from = parseInt(document.getElementsByName('from')[indexArg].value);
+  config.to = parseInt(document.getElementsByName('to')[indexArg].value);
+}
+
+function changeableBorder(config, indexArg){
+  config.onUpdate = borderWidthChange;
+  config.from = parseInt(document.getElementsByName('from')[indexArg].value);
+  config.to = parseInt(document.getElementsByName('to')[indexArg].value);
+}
+
 function getAngle(value) {
   switch (value) {
     case '1': return Math.PI / 2;
@@ -186,6 +214,27 @@ function bottomToTop(value) {
 
 function rotate(value) {
   this.setRotation(value);
+}
+
+function colorTwinkle(value) {
+  value = parseInt(value);
+  if (value < 50) {
+    this.s("body.color", "rgb(175, 62, 167)");
+  } else {
+    this.s("body.color", "rgb(228, 147, 6)");
+  }
+}
+
+function colorChange(value) {
+  this.s("body.color", "rgb(" + parseInt(Math.random() * 255) + ", " + parseInt(Math.random() * 255) + ", " + parseInt(Math.random() * 255) + ")");
+}
+
+function changeBorder(value) {
+  this.s('border.color', "rgb(" + parseInt(Math.random() * 255) + ", " + parseInt(Math.random() * 255) + ", " + parseInt(Math.random() * 255) + ")");
+}
+
+function borderWidthChange(value){
+ this.s('border.width', value);
 }
 
 function checkAnimation() {
